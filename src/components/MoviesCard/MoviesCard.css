@@ -1,0 +1,119 @@
+.card {
+  background: #222222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  max-width: 100%;
+  height: 218px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.card__image {
+  background-image: url(../../images/my-photo.jpg);
+  object-fit: cover;
+  background-size: cover;
+  width: 100%;
+  height: 151px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.card__container {
+  width: 91%;
+  display: flex;
+  gap: 24px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.card__title-block {
+  width: 200px;
+  padding-top: 14px;
+}
+
+.card__title {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #fff;
+}
+
+.card__time {
+  display: flex;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8b8b8b;
+  align-items: center;
+}
+
+.card__delete-button {
+  background-image: url('../../images/delete-button.svg');
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.card__delete-button:hover {
+  opacity: 0.6;
+}
+
+.card__like-button {
+  width: 16px;
+  background-image: url('../../images/like.svg');
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.card__like-button_active {
+  background-image: url('../../images/like-active.svg');
+}
+
+@media screen and (max-width: 1023px) {
+  .card {
+    height: 257px;
+  }
+  .card__container {
+    width: 93%;
+  }
+  .card__image {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    height: 235px;
+  }
+
+  .card__container {
+    width: 92%;
+  }
+
+  .card__image {
+    height: 168px;
+  }
+
+  .card__title {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .card__time {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
