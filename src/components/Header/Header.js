@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Header.css';
-import logo from '../../images/logo.svg';
+import logo from '../../images/logo.png';
 import account from '../../images/profile777.svg';
 import menu from '../../images/menu-button.svg';
 import Navigation from '../Navigation/Navigation';
@@ -35,7 +35,7 @@ function Header() {
     <>
       {shouldShowFirstHeader() && (
         <header className='header' id='header'>
-          <Link to='/' className='form__logo'>
+          <Link to='/' className='header__logo'>
             <img src={logo} alt='логотип сайта' />
           </Link>
           <div className='header__button-container'>
@@ -51,26 +51,18 @@ function Header() {
 
       {shouldShowSecondHeader() && (
         <header className='header header_gray' id='header-gray'>
-          <Link to='/' className='form__logo'>
+          <Link to='/' className='header__logo'>
             <img src={logo} alt='логотип сайта' />
           </Link>
-          <div className='header__button-container_films'>
-            <NavLink
-              to='/movies'
-              className='header__button'
-              activeClassName='header__button_active'
-            >
+          <div className='header__films-container'>
+            <NavLink to='/movies' className='header__button'>
               Фильмы
             </NavLink>
-            <NavLink
-              to='/saved-movies'
-              className='header__button'
-              activeClassName='header__button_active'
-            >
+            <NavLink to='/saved-movies' className='header__button'>
               Сохранённые фильмы
             </NavLink>
           </div>
-          <div className='header__button-container'>
+          <nav className='header__button-container'>
             <Link to='/profile' className='header__account-button'>
               <img
                 className='header__account-image'
@@ -81,7 +73,7 @@ function Header() {
             <button className='header__menu-button' onClick={handleOpen}>
               <img src={menu} alt='меню' />
             </button>
-          </div>
+          </nav>
           {isClicked ? <Navigation handleClose={handleClose} /> : ''}
         </header>
       )}

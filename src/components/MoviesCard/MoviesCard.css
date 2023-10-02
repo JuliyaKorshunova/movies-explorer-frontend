@@ -1,8 +1,8 @@
 .card {
-  background: #222222;
+  background-color: #222222;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
-  max-width: 100%;
+  width: 270px;
   height: 218px;
   display: flex;
   flex-direction: column;
@@ -11,23 +11,19 @@
 }
 
 .card__image {
-  background-image: url(../../images/my-photo.jpg);
-  object-fit: cover;
-  background-size: cover;
-  width: 100%;
+  width: 270px;
   height: 151px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  background-position: center;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .card__container {
-  width: 91%;
-  display: flex;
-  gap: 24px;
+  width: 100%;
+  padding: 0 12px;
   display: flex;
   justify-content: space-between;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  gap: 24px;
 }
 
 .card__title-block {
@@ -40,6 +36,9 @@
   font-size: 13px;
   line-height: 16px;
   color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__time {
@@ -54,10 +53,9 @@
 
 .card__delete-button {
   background-image: url('../../images/delete-button.svg');
+  margin-top: 15px;
   width: 16px;
-  height: 16px;
   border: none;
-  background-position: center;
   background-repeat: no-repeat;
   background-color: transparent;
   cursor: pointer;
@@ -83,26 +81,24 @@
 
 @media screen and (max-width: 1023px) {
   .card {
+    width: 339px;
     height: 257px;
   }
-  .card__container {
-    width: 93%;
-  }
+
   .card__image {
+    width: 339px;
     height: 190px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 400px) {
   .card {
+    width: 300px;
     height: 235px;
   }
 
-  .card__container {
-    width: 92%;
-  }
-
   .card__image {
+    width: 300px;
     height: 168px;
   }
 
@@ -115,5 +111,28 @@
     margin-top: 10px;
     font-size: 10px;
     line-height: 12px;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .card {
+    width: 250px;
+    height: 235px;
+  }
+
+  .card__image {
+    width: 250px;
+    height: 168px;
+  }
+
+  .card__title {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .card__time {
+    margin-top: 10px;
+    font-size: 8px;
+    line-height: 10px;
   }
 }

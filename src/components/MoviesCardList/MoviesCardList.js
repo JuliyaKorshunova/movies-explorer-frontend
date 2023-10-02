@@ -1,10 +1,13 @@
 import React from 'react';
 import './MoviesCardList.css';
-import MoviesCard from '../MoviesCard/MoviesCard';
+// import MoviesCard from '../MoviesCard/MoviesCard';
 // import Preloader from "../Preloader/Preloader"
 import SearchError from '../SearchError/SearchError';
+import { useLocation } from 'react-router-dom';
 
-function MoviesCardList() {
+function MoviesCardList({ children }) {
+  const location = useLocation();
+
   return (
     <section className='cards'>
       {/* <Preloader /> */}
@@ -17,29 +20,13 @@ function MoviesCardList() {
         }
       />
 
-      <ul className='cards__list'>
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-      </ul>
-
-      {/* <ul className="cards__list"></ul> */}
-      <div className='cards__button-container'>
-        <button className='cards__button'>Ещё</button>
-      </div>
+      <ul className='cards__list'>{children}</ul>
+      {location.pathname === '/movies' && (
+        <div className='cards__button-container'>
+          <button className='cards__button'>Ещё</button>
+        </div>
+      )}
+      {location.pathname === '/saved-movies' && <div className='cards__divider'></div>}
     </section>
   );
 }

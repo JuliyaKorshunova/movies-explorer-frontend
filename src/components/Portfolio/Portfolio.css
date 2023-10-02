@@ -20,8 +20,9 @@
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
 }
 
 .portfolio__link:hover {
@@ -41,6 +42,15 @@
   letter-spacing: -0.04em;
 }
 
+.portfolio__image {
+  width: 28px;
+  height: 18px;
+}
+
+.portfolio__image:hover {
+ opacity: .6;
+}
+
 @media screen and (max-width: 1023px) {
   .portfolio {
     padding: 0 50px 90px 50px;
@@ -48,6 +58,10 @@
 
   .portfolio__description {
     font-size: 28px;
+  }
+
+  .portfolio__image {
+    padding-top: 3px;
   }
 }
 
@@ -64,5 +78,11 @@
   .portfolio__description {
     font-size: 18px;
     line-height: 28px;
+  }
+
+  .portfolio__image {
+    padding-top: 8px;
+    width: 18px;
+    height: 18px;
   }
 }

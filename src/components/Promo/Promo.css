@@ -63,9 +63,9 @@
   }
   .promo__title {
     margin-top: 44px;
-    max-width: 300px;
-    font-size: 29px;
+    font-size: 30px;
     line-height: 38px;
+    letter-spacing: -0.04em;
   }
   .promo__description {
     margin-top: 24px;

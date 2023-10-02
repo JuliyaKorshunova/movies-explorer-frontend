@@ -1,39 +1,44 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import "./Form.css"
-import logo from "../../images/logo.svg"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Form.css';
+import logo from '../../images/logo.png';
 
-function Form({
-  linkText,
-  link,
-  children,
-  title,
-  buttonText,
-  question,
-}) {
+function Form({ formName, linkText, link, children, title, buttonText, question }) {
+  function handleSubmit(evt) {
+    evt.preventDefault();
+  }
+
   return (
-    <div className="form__container">
-      <Link to="/" className="form__logo">
-        <img src={logo} alt="логотип cайта" />
-      </Link>
-      <h3 className="form__title">{title}</h3>
-      <form className="form" id="form" noValidate>
-        {children}
-        <button
-          type="submit"
-          className="form__button-save"
-        >
-          {buttonText}
-        </button>
-      </form>
-      <p className="form__text">
-        {question}
-        <Link to={link} className="form__link">
-          {linkText}
+    <main className='page__form'>
+      <section className='page__form-container'>
+        <Link to='/' className='page__form-logo'>
+          <img src={logo} alt='логотип cайта' />
         </Link>
-      </p>
-    </div>
-  )
+        <h1 className='page__form-title'>{title}</h1>
+        <form
+          className='page__form-form'
+          id='form'
+          name={formName}
+          noValidate
+          onSubmit={handleSubmit}
+        >
+          {children}
+          {/* <button
+            type='submit'
+            className='page__form-save-btn'
+          >
+            {buttonText}
+          </button> */}
+        </form>
+        <p className='page__form-text'>
+          {question}
+          <Link to={link} className='page__form-link'>
+            {linkText}
+          </Link>
+        </p>
+      </section>
+    </main>
+  );
 }
 
-export default Form
+export default Form;

@@ -1,20 +1,36 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import './MoviesCard.css';
+import { useLocation } from 'react-router-dom';
+import CardImg from '../../images/pic__COLOR_pic.png';
 
 function MoviesCard() {
+  const [isSavedMovie, setIsSavedMovie] = useState(false);
+  const location = useLocation();
+
+  function handleClick() {
+    setIsSavedMovie(!isSavedMovie);
+  }
+
   return (
     <>
       <li className='card'>
         {/* карточка вставлена чтобы увидеть структуру разметки страницы */}
-        <img alt='' className='card__image' />
+        <img alt='Кадр из фильма «Название фильма»' className='card__image' src={CardImg} />
         <div className='card__container'>
           <div className='card__title-block'>
             <h2 className='card__title'>33 слова о дизайне</h2>
-            <span className='card__time'>1ч42м</span>
+            <p className='card__time'>1ч42м</p>
           </div>
-          <button type='button' className='card__like-button'></button>
-          {/* <button type="button" className="card__delete-button"></button> */}
+          {location.pathname === '/movies' && (
+            <button
+              type='button'
+              className={`card__like-button ${isSavedMovie ? 'card__like-button_active' : ''}`}
+              onClick={handleClick}
+            ></button>
+          )}
+          {location.pathname === '/saved-movies' && (
+            <button type='button' className='card__delete-button'></button>
+          )}
         </div>
       </li>
     </>
